@@ -2,19 +2,10 @@ import { Button, Col, Flex, Form, Input, Row } from "antd";
 import axios from "axios";
 
 function App() {
-  const api = axios.create({ baseURL: "https://usuarios.ronierlima.dev" });
+  const api = axios.create({ baseURL: "https://fs01linksapi.onrender.com" });
   async function login(dados) {
-    const resposta = await fetch("https://usuarios.ronierlima.dev/auth/login", {
-      method: "POST",
-      body: JSON.stringify(dados),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
     const nova = api.post("/auth/login", dados);
     console.log(nova);
-    console.log(resposta);
   }
 
   return (
@@ -32,7 +23,7 @@ function App() {
             </Form.Item>
           </Col>
           <Col span={24}>
-            <Form.Item label="Senha" name="password">
+            <Form.Item label="Senha" name="senha">
               <Input placeholder="Digite sua senha" />
             </Form.Item>
           </Col>
